@@ -1,0 +1,33 @@
+<%- include("../header"); %>
+<div class="container mt-5">
+    <h2>Thông Tin Sản Phẩm</h2>
+    <form action="" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Danh mục</label>
+            <select class="form-control" id="categoryName" name="category_id" required>
+                <option value="" selected disabled>Chọn danh mục</option>
+                <% categories.forEach(function(categori) {%>
+                    <option value="<%= categori.id %>"><%= categori.name %></option>
+                <% });%>
+            </select>  
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Tên Sản Phẩm</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên sản phẩm" />
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Giá Sản Phẩm</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="Nhập giá sản phẩm" />
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Mô Tả</label>
+            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Nhập mô tả sản phẩm"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Hình Ảnh</label>
+            <input type="file" class="form-control" id="image" name="image" />
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm mới</button>
+    </form>
+</div>
+<%- include("../footer"); %>

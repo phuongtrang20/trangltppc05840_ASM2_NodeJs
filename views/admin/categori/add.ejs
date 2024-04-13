@@ -1,0 +1,12 @@
+<%- include("../header"); %>
+<div class="container mt-5">
+    <h2>Thông Tin Danh Mục</h2>
+    <form action="/admin/add-categori" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Tên Danh Mục</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên danh mục" />
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm mới</button>
+    </form>
+</div>
+<%- include("../footer"); %>

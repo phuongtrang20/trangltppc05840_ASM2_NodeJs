@@ -1,0 +1,12 @@
+<%- include("../header"); %>
+<div class="container mt-5">
+    <h2>Sửa Thông Tin Danh Mục</h2>
+    <form action="/admin/edit-categori/<%= categori.id %>" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Tên Danh Mục</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên danh mục" value="<%= categori.name %>"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Sửa</button>
+    </form>
+</div>
+<%- include("../footer"); %>

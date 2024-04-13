@@ -1,0 +1,38 @@
+<%- include("../header"); %>
+<div class="container mt-5">
+    <h2>Sửa Thông Tin Sản Phẩm</h2>
+    <form action="/admin/edit-products/<%= product.id %>" enctype="multipart/form-data" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="mb-3">
+            <label for="name" class="form-label">Danh mục</label>
+            <select class="form-control" id="categoryName" name="category_id" required>
+                <option value="" selected disabled>Chọn danh mục</option>
+                <% if (product && categories) { %>
+                    <% categories.forEach(function(categori) { %>
+                        <option value="<%= categori.id %>" <% if (categori.id === product.category_id ) { %> selected <% } %>><%= categori.name %></option>
+                    <% }); %>
+                <% } %>
+            </select>
+            
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Tên Sản Phẩm</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên sản phẩm" value="<%= product.name %>"/>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Giá Sản Phẩm</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="Nhập giá sản phẩm" value="<%= product.price %>"/>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Mô Tả</label>
+            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Nhập mô tả sản phẩm" value="description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Hình Ảnh</label>
+            <input type="file" class="form-control" id="image" name="image" />
+            <img src="/data/admin/img/<%= product.image %>" alt="">
+        </div>
+        <button type="submit" class="btn btn-primary">Sửa</button>
+    </form>
+</div>
+<%- include("../footer"); %>
